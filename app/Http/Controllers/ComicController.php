@@ -12,7 +12,7 @@ class ComicController extends Controller
      */
     public function index()
     {
-        $comics = config('comics');
+        $comics = Comic::all();
         return view('home', compact('comics'));
     }
 
@@ -35,8 +35,12 @@ class ComicController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Comic $comic)
+    public function show(Comic $id)
     {
+        $comics = Comic::all();
+
+        // dd($comics);
+        $comic = $comics[$id];
         return view('pages.comic', compact('comic'));
     }
 
