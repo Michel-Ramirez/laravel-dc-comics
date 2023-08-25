@@ -1,0 +1,64 @@
+@use "vars" as *;
+
+.header-top {
+    height: 30px;
+    background-color: $cl-main;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: end;
+
+    a {
+        color: white;
+        padding: 0 10px;
+    }
+}
+
+header {
+    .logo {
+        margin: 10px 0;
+        img {
+            display: block;
+            height: 80px;
+        }
+    }
+    .container {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    ul {
+        display: flex;
+
+        li {
+            margin: 0 10px;
+            a {
+                color: black;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.search-bar {
+    input {
+        border: 0;
+        border-bottom: 2px solid $cl_main;
+    }
+}
+
+input:focus-visible {
+    outline: -webkit-focus-ring-color auto 0px;
+}
+
+.jumbotron {
+    height: 600px;
+    img {
+        height: 100%;
+        width: 100%;
+        display: block;
+        object-fit: cover;
+        object-position: top;
+    }
+}

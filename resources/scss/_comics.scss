@@ -1,0 +1,96 @@
+@use "vars" as *;
+
+.separator-jumbo {
+    height: 50px;
+    width: 100%;
+    background-color: $cl-main;
+    position: relative;
+
+    img {
+        height: 200px;
+        position: absolute;
+        bottom: -25px;
+    }
+}
+
+.container-content {
+    display: flex;
+    margin: 50px 0;
+    main {
+        background-color: white;
+    }
+}
+
+.content {
+    width: 70%;
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+.advertisement {
+    width: 30%;
+    height: 250px;
+    margin: 20px;
+    img {
+        height: 100%;
+    }
+}
+
+.price-section {
+    width: 100%;
+    margin: 20px 0;
+    background-color: $bgc-price-bar;
+    display: flex;
+    justify-content: space-between;
+
+    button {
+        color: white;
+        background-color: $bgc-price-bar;
+        border: 0;
+        padding: 0 20px;
+        cursor: pointer;
+    }
+
+    .price {
+        color: white;
+    }
+    h6 {
+        color: #baf980;
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+}
+
+.details {
+    background-color: lightgray;
+
+    .talents,
+    .specs {
+        width: 50%;
+        margin: 100px 0;
+    }
+
+    .wrapper {
+        margin-top: 50px;
+        display: flex;
+        gap: 20px;
+    }
+
+    table {
+        width: 100%;
+        td {
+            border-bottom: 1px solid gray;
+            padding-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            :first-child {
+                width: 30%;
+            }
+            :nth-child(2) {
+                width: 70%;
+                color: blue;
+            }
+        }
+    }
+}

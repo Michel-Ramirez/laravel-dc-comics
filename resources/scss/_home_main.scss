@@ -1,0 +1,56 @@
+@use "vars" as *;
+
+.banner {
+    padding: 10px 40px;
+    background-color: $cl-main;
+    color: white;
+    display: inline-block;
+    position: absolute;
+    top: -70px;
+    left: -5px;
+}
+
+.wrapper {
+    width: 1080px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.cards {
+    padding: 50px 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+}
+
+.card {
+    width: 100%;
+
+    figure {
+        height: 250px;
+        margin-bottom: 20px;
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+    }
+}
+.card-body {
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+        width: calc(100% / 6 - 20px);
+        margin: 20px;
+    }
+}
+
+.card a:hover {
+    color: $cl-main;
+}
+
+.series {
+    color: white;
+}
