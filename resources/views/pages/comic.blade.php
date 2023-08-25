@@ -37,9 +37,9 @@
                             <td>
                                 <div>Art by:</div>
                                 <div>
-                                    @foreach ($comic['artists'] as $artists)
-                                        <span>{{ $artists }}</span>
-                                    @endforeach
+
+                                    <span>{{ $comic['artists'] }}</span>
+
                                 </div>
                             </td>
                         </tr>
@@ -47,9 +47,9 @@
                             <td>
                                 <div>Written by:</div>
                                 <div>
-                                    @foreach ($comic['writers'] as $writers)
-                                        <span>{{ $writers }}</span>
-                                    @endforeach
+
+                                    <span>{{ $comic['writers'] }}</span>
+
                                 </div>
                             </td>
                         </tr>
@@ -57,7 +57,7 @@
                 </div>
                 <div class="specs">
 
-                    <h2>Talent</h2>
+                    <h2>Specs</h2>
                     <table>
                         <tr>
                             <td>

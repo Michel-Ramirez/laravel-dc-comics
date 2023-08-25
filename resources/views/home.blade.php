@@ -13,7 +13,7 @@
                     <li>
                         <div class="card">
                             <figure>
-                                <a href="{{ route('comic', $comic->id) }}" class="series">
+                                <a href="{{ route('comic', $comic) }}" class="series">
                                     <img src="{{ $comic['thumb'] }}" alt="">
                                 </a>
                             </figure>
