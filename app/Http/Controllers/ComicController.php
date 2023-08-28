@@ -49,7 +49,7 @@ class ComicController extends Controller
      */
     public function edit(Comic $comic)
     {
-        //
+        return view('pages.edit');
     }
 
     /**

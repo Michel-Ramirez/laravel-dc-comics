@@ -15,5 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [ComicController::class, 'index'])->name('home');
-
-Route::get('/comics/{comic}', [ComicController::class, 'show'])->name('comic');
+Route::get('/comics/edit', [ComicController::class, 'edit'])->name('edit'); // aggiunge i dati sul DB
+Route::get('/comics/{comic}', [ComicController::class, 'show'])->name('comic'); // aggiunge i dati sul DB

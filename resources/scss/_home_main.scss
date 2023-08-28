@@ -23,20 +23,6 @@
     background-color: black;
 }
 
-.card {
-    width: 100%;
-
-    figure {
-        height: 250px;
-        margin-bottom: 20px;
-        img {
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
-            object-position: top;
-        }
-    }
-}
 .card-body {
     display: flex;
     flex-wrap: wrap;
@@ -44,6 +30,20 @@
     li {
         width: calc(100% / 6 - 20px);
         margin: 20px;
+        .card {
+            width: 100%;
+            background-color: black;
+            figure {
+                height: 250px;
+                margin-bottom: 20px;
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                    object-position: top;
+                }
+            }
+        }
     }
 }
 
