@@ -11,8 +11,12 @@
         </div>
     </div>
 
+
     <section>
         <div class="wrapper">
+            <div class="my-3 d-flex justify-conten-end">
+                <a href="{{ route('comics.edit', $comic) }}" class="btn btn-success">MODIFICA</a>
+            </div>
             <div class="container-content">
                 <div class="content">
                     <h1>{{ $comic['title'] }}</h1>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comic;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ComicController extends Controller
 {
@@ -37,9 +38,6 @@ class ComicController extends Controller
      */
     public function show(Comic $comic)
     {
-        // $comics = Comic::all();
-
-        $comic = $comic;
 
         return view('pages.comic', compact('comic'));
     }
@@ -49,7 +47,7 @@ class ComicController extends Controller
      */
     public function edit(Comic $comic)
     {
-        return view('pages.edit');
+        return view('pages.edit', compact('comic'));
     }
 
     /**
@@ -57,7 +55,29 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
-        //
+
+        $request->validate([
+
+            'title' => ['required', 'string', Rule::unique('comics')->ignore($comic->id)],
+            'description' => 'nullable|string',
+            'thumb' => 'nullable|url:http,https',
+            'price' => 'required|string',
+            'series' => 'nullable|string',
+            'sale_date' => 'required',
+            'type' => 'nullable|string',
+            'artists' => 'nullable|string',
+            'writers' => 'required|string',
+        ], [
+            'title.required' => "Questo campo è obbligatorio",
+            'title.unique' => "Il fumetto $comic->title esiste già",
+            'price.required' => 'Questo campo è ubbligatorio',
+            'sale_date' => 'Questo campo è richiesto',
+        ]);
+
+        $data = $request->all();
+        $comic->update($data);
+
+        return to_route('comics.show', compact('comic'));
     }
 
     /**

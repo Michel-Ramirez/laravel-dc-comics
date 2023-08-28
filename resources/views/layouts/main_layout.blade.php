@@ -17,6 +17,8 @@
     {{-- FOOTER --}}
     @include('includes.footer')
 
+    @yield('script-js')
+
 </body>
 
 </html>
