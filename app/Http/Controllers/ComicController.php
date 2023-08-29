@@ -20,9 +20,10 @@ class ComicController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Comic $comic)
     {
-        //
+        $comic = new Comic();
+        return view('pages.create', compact('comic'));
     }
 
     /**
@@ -30,7 +31,27 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $data = $request->all();
+
+        $request->validate([
+
+            'title' => ['required', 'string', Rule::unique('comics')],
+            'description' => 'required|string',
+            'thumb' => 'required|url:http,https',
+            'price' => 'required|string',
+            'series' => 'required|string',
+            'sale_date' => 'required',
+            'type' => 'required|string',
+            'artists' => 'required|string',
+            'writers' => 'required|string',
+        ]);
+
+        $comic = new Comic();
+
+        $comic->fill($data);
+
+        $comic->save();
     }
 
     /**
@@ -56,16 +77,17 @@ class ComicController extends Controller
     public function update(Request $request, Comic $comic)
     {
 
+        //validazione prima di portare i dati nel DB
         $request->validate([
 
             'title' => ['required', 'string', Rule::unique('comics')->ignore($comic->id)],
-            'description' => 'nullable|string',
-            'thumb' => 'nullable|url:http,https',
+            'description' => 'required|string',
+            'thumb' => 'required|url:http,https',
             'price' => 'required|string',
-            'series' => 'nullable|string',
+            'series' => 'required|string',
             'sale_date' => 'required',
-            'type' => 'nullable|string',
-            'artists' => 'nullable|string',
+            'type' => 'required|string',
+            'artists' => 'required|string',
             'writers' => 'required|string',
         ], [
             'title.required' => "Questo campo è obbligatorio",
@@ -77,7 +99,9 @@ class ComicController extends Controller
         $data = $request->all();
         $comic->update($data);
 
-        return to_route('comics.show', compact('comic'));
+
+        //ritorna al dettaglio del fumetto appena aggiunto
+        return to_route('comics.show', $comic);
     }
 
     /**

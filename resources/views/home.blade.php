@@ -8,6 +8,9 @@
     <div class="cards">
         <div class="wrapper">
             <div class="banner">CURRENT SERIES</div>
+            <div class="d-flex justify-content-center">
+                <a href="{{ route('comics.create') }}" class="btn btn-success">AGGIUNGI UN NUOVO FUMETTO</a>
+            </div>
             <ul class="card-body">
                 @foreach ($comics as $comic)
                     <li>
