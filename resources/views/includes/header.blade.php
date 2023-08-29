@@ -23,7 +23,10 @@
             </ul>
         </div>
         <div class="search-bar">
-            <input type="text" placeholder="search">
+            <form method="GET" action="{{ route('comics.index') }}">
+                <input type="text" placeholder="search" name="filter">
+                <button class="btn sm btn-secondary">Cerca</button>
+            </form>
         </div>
     </div>
     <div class="jumbotron">

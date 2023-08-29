@@ -11,9 +11,17 @@ class ComicController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $comics = Comic::all();
+
+        $filter = $request->filter;
+
+        if ($filter) {
+            $comics = Comic::where('title', 'like', '%' . $filter . '%')->get();
+        } else {
+            $comics = Comic::all();
+        };
+
         return view('home', compact('comics'));
     }
 
@@ -45,6 +53,17 @@ class ComicController extends Controller
             'type' => 'required|string',
             'artists' => 'required|string',
             'writers' => 'required|string',
+        ], [
+            'title.required' => 'Questo campo è obbligatorio',
+            'title.unique' => 'Questo titolo esiste già',
+            'description.required' => 'Questo campo è obbligatorio',
+            'thumb.required' => 'Questo campo è obbligatorio',
+            'thumb.url' => 'Url non valido',
+            'price.required' => 'Questo campo è obbligatorio',
+            'sale_date.required' => 'Questo campo è obbligatorio',
+            'type.required' => 'Questo campo è obbligatorio',
+            'artists.required' => 'Questo campo è obbligatorio',
+            'writers.required' => 'Questo campo è obbligatorio'
         ]);
 
         $comic = new Comic();
@@ -52,6 +71,8 @@ class ComicController extends Controller
         $comic->fill($data);
 
         $comic->save();
+
+        return to_route('home');
     }
 
     /**

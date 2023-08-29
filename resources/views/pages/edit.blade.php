@@ -10,7 +10,6 @@
         @include('includes.comic.form')
     </div>
     <section>
-    @endsection
 
     @section('script-js')
         <script>
@@ -23,3 +22,5 @@
             });
         </script>
     @endsection
+
+@endsection
