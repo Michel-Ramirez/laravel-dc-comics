@@ -15,7 +15,12 @@
     <section>
         <div class="wrapper">
             <div class="my-3 d-flex justify-conten-end">
-                <a href="{{ route('comics.edit', $comic) }}" class="btn btn-success">MODIFICA</a>
+                <a href="{{ route('comics.edit', $comic) }}" class="btn btn-success me-3">MODIFICA</a>
+                <form method="POST" action="{{ route('comics.destroy', $comic) }}">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger">ELIMINA</button>
+                </form>
             </div>
             <div class="container-content">
                 <div class="content">

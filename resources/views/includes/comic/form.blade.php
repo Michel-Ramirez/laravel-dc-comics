@@ -82,7 +82,7 @@ VUOTO --}}
                     <div class="mb-3">
                         <label for="price" class="form-label"><strong>Prezzo</strong></label>
                         <input type="text" class="form-control" id="price" name="price"
-                            value="{{ old('series', $comic->series) }}" placeholder="$19.90">
+                            value="{{ old('price', $comic->price) }}" placeholder="$19.90">
                     </div>
                 </div>
             </div>
